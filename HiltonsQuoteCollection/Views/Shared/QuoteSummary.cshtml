@@ -19,16 +19,23 @@
         }
     </div>
     @*these are the buttons for editing and deleting*@
-    <form asp-action="EditQuote" method="get">
-        <input type="hidden" name="quoteId" value="@Model.QuoteId" />
-        <button type="submit" class="btn btn-warning">
-            Edit
-        </button>
-    </form>
-    <form asp-action="Index" method="post">
-        <input type="hidden" name="quoteId" value="@Model.QuoteId" />
-        <button type="submit" class="btn btn-danger">
-            Delete
-        </button>
-    </form>
+    <div class="row">
+        <div class="col-6">
+            <form asp-action="EditQuote" method="get">
+                <input type="hidden" name="quoteId" value="@Model.QuoteId" />
+                <button type="submit" class="btn btn-warning">
+                    Edit
+                </button>
+            </form>
+        </div>
+        <div class="col-6">
+            <form asp-action="Index" method="post">
+                <input type="hidden" name="quoteId" value="@Model.QuoteId" />
+                <button type="submit" class="btn btn-danger">
+                    Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    
 </div>

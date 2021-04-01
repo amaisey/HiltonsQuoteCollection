@@ -4,12 +4,13 @@
 @{
 }
 
+@*the extra credit page!*@
 
 @model Quotes
 
 <div class="text-center">
 
-    @*the following line is the required heading for this assignment*@
+    @*Just a title*@
     <h1 class="display-4">Here is a randomly generated Quote:</h1>
 
     <div class="card card-outline-primary m-1 p-1 text-center w-75 mx-auto">
@@ -28,19 +29,6 @@
                 <p>Citation: @Model.Citation</p>
             }
         </div>
-        @*these are the buttons for editing and deleting*@
-        <form asp-action="EditQuote" method="get">
-            <input type="hidden" name="quoteId" value="@Model.QuoteId" />
-            <button type="submit" class="btn btn-warning">
-                Edit
-            </button>
-        </form>
-        <form asp-action="Index" method="post">
-            <input type="hidden" name="quoteId" value="@Model.QuoteId" />
-            <button type="submit" class="btn btn-danger">
-                Delete
-            </button>
-        </form>
     </div>
 
 </div>
