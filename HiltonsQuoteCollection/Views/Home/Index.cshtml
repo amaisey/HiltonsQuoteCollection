@@ -1,8 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Quote List";
 }
 
+@model IEnumerable<Quotes>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @*the following line is the required heading for this assignment*@
+    <h1 class="display-4">Here are your Quotes:</h1>
+
+    @*this is to iterate through all the quotes in the database,
+    and it calls the partial view to genereate each card with all the quote data*@
+    @foreach (var b in Model)
+    {
+        <partial name="QuoteSummary" model="b" />
+    }
 </div>

@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*this is the page where you edit quotes*@
+
+@model Quotes
+
+<h2>Edit your Quote here</h2>
+
+<form asp-action="EditQuote" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group col-md-3">
+        <label asp-for="Quote">Is the quote correct?</label>
+        <input class="form-control" asp-for="Quote" value="@Model.Quote" />
+    </div>
+
+    <div class="form-group col-md-3">
+        <label asp-for="Author">Who is the Author?</label>
+        <input class="form-control" asp-for="Author" value="@Model.Author" />
+    </div>
+
+    <div class="form-group col-md-3">
+        <label asp-for="Date">What is the date it was entered?</label>
+        <input class="form-control" asp-for="Date" value="@Model.Date" />
+    </div>
+
+    <div class="form-group col-md-3">
+        <label asp-for="Subject">If desired, whats the Subject?</label>
+        <input class="form-control" asp-for="Subject" value="@Model.Subject" />
+    </div>
+
+    <div class="form-group col-md-3">
+        <label asp-for="Citation">Do you have a Citation?</label>
+        <input class="form-control" asp-for="Citation" value="@Model.Citation" />
+    </div>
+
+    <input type="hidden" asp-for="QuoteId" value="@Model.QuoteId" />
+
+    <button type="submit">Submit Quote!</button>
+</form>

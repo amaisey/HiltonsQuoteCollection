@@ -1,0 +1,34 @@
+﻿@model Quotes
+
+@*this view returns each quote*@
+
+<div class=" bg-success bg-gradient card card-outline-primary m-1 p-1 text-center w-75 mx-auto">
+    <h3 class="card-header">@Model.Quote</h3>
+    <div class="card-body">
+        <h4 class="card-subtitle mb-2 fst-italic" style="color:black;">Author: @Model.Author</h4>
+        <p>Date: @Model.Date</p>
+
+        @*only shows citation and subject if they exist for each quote*@
+        @if (Model.Subject != null)
+        {
+            <p>Subject: @Model.Subject</p>
+        }
+        @if (Model.Citation != null)
+        {
+            <p>Citation: @Model.Citation</p>
+        }
+    </div>
+    @*these are the buttons for editing and deleting*@
+    <form asp-action="EditQuote" method="get">
+        <input type="hidden" name="quoteId" value="@Model.QuoteId" />
+        <button type="submit" class="btn btn-warning">
+            Edit
+        </button>
+    </form>
+    <form asp-action="Index" method="post">
+        <input type="hidden" name="quoteId" value="@Model.QuoteId" />
+        <button type="submit" class="btn btn-danger">
+            Delete
+        </button>
+    </form>
+</div>
