@@ -21,12 +21,14 @@ namespace HiltonsQuoteCollection.Controllers
             context = ctx;
         }
 
+        //normal index page showing all quotes
         [HttpGet]
         public IActionResult Index()
         {
             return View(context.Quotes.ToList());
         }
 
+        //this is the method for deleting a quote. i used the post index for simplicity
         [HttpPost]
         public IActionResult Index(int quoteId)
         {
@@ -38,12 +40,15 @@ namespace HiltonsQuoteCollection.Controllers
             return View(context.Quotes.ToList());
         }
 
+        //this redirects to a new page for adding a quote
         [HttpGet]
         public IActionResult AddQuote()
         {
             return View();
         }
 
+        //this performs the add, and returns to the home index view
+        // it checks if the model is a valid input
         [HttpPost]
         public IActionResult AddQuote(Quotes newQuote)
         {
@@ -60,6 +65,7 @@ namespace HiltonsQuoteCollection.Controllers
             }
         }
 
+        //this method takes the user to the page for editing quotes
         [HttpGet]
         public IActionResult EditQuote(int quoteId)
         {
@@ -68,6 +74,7 @@ namespace HiltonsQuoteCollection.Controllers
             return View(Quote);
         }
 
+        //this method performs the edit, and returns the view to the index
         [HttpPost]
         public IActionResult EditQuote(Quotes newQuote)
         {
@@ -77,6 +84,7 @@ namespace HiltonsQuoteCollection.Controllers
             return View("Index", context.Quotes.ToList());
         }
 
+        //this method takes the user to a page that randomly shows a quote everytime it is loaded. 
         public IActionResult RandomQuote()
         {
             Quotes randQuote = context.Quotes.AsEnumerable().OrderBy(q => Guid.NewGuid()).FirstOrDefault();
